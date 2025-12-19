@@ -1,0 +1,115 @@
+import React from 'react'
+import { Code, Cpu, Globe, Terminal } from 'lucide-react'
+import {SiPython}from 'react-icons/si'
+import { IoLogoJavascript } from "react-icons/io";
+import { FaJava } from "react-icons/fa";
+import { TbSql } from "react-icons/tb";
+import { SiRstudioide } from "react-icons/si";
+import { SiTypescript } from "react-icons/si";
+import { SiPytorch } from "react-icons/si";
+import { SiTensorflow } from "react-icons/si";
+import { SiScikitlearn } from "react-icons/si";
+import { SiPandas } from "react-icons/si";
+import { SiNumpy } from "react-icons/si";
+import { SiReact } from "react-icons/si";
+import { SiNextdotjs } from "react-icons/si";
+import { SiTailwindcss } from "react-icons/si";
+import { SiNodedotjs } from "react-icons/si";
+import { SiHtml5 } from 'react-icons/si';
+import { SiGit } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
+import { SiDocker } from "react-icons/si";
+import { SiLinux } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
+import { SiVercel } from "react-icons/si";
+import LeftScroll from './leftscroll'
+
+const Skills = () => {
+  const skillsData = [
+  {
+    category: "Languages",
+    icon: <Code className="w-6 h-6 text-teal-400" />,
+    items: [
+      { name: "Python", icon: <SiPython/> },
+      { name: "JavaScript", icon: <IoLogoJavascript /> },
+      { name: "Java", icon: <FaJava /> },
+      { name: "SQL", icon: <TbSql /> },
+      { name: "R", icon: <SiRstudioide />},
+      { name : "TypeScript", icon: <SiTypescript /> },
+    ]
+  },
+  {
+    category: "Machine Learning & AI",
+    icon: <Cpu className="w-6 h-6 text-teal-400" />,
+    items: [
+      { name: "PyTorch", icon: <SiPytorch /> },
+      { name: "TensorFlow", icon: <SiTensorflow /> },
+      { name: "Scikit-Learn", icon: <SiScikitlearn /> },
+      { name: "Pandas", icon: <SiPandas /> },
+      { name: "NumPy", icon: <SiNumpy /> },
+    ]
+  },
+  {
+    category: "Web Development",
+    icon: <Globe className="w-6 h-6 text-teal-400" />,
+    items: [
+      { name: "React", icon: <SiReact /> },
+      { name: "Next.js", icon: <SiNextdotjs /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+      { name: "Node.js", icon: <SiNodedotjs /> },
+      { name: "HTML5", icon: <SiHtml5 /> },
+    ]
+  },
+  {
+    category: "Tools & DevOps",
+    icon: <Terminal className="w-6 h-6 text-teal-400" />,
+    items: [
+      { name: "Git", icon: <SiGit /> },
+      { name: "GitHub", icon: <SiGithub /> },
+      { name: "Docker", icon: <SiDocker /> },
+      { name: "Linux", icon: <SiLinux /> },
+      { name: "VS Code", icon: <VscVscode /> },
+      { name: "Vercel", icon: <SiVercel /> },
+    ]
+  }
+];
+  return (
+    <div className='min-h-screen pt-3 flex flex-col items-start max-w-7xl mx-auto lg:px-36 relative overflow-hidden'>
+      <LeftScroll to='#projects'/>
+      <h1 className='text-6xl font-bold text-left mt-10 text-white'>Skills</h1>
+      <div className='grid grid-cols-2 gap-6 mt-10'>
+        {skillsData.map((skillCategory, index) => (
+          <div key={index} className='p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors'>
+            <div className='flex items-center gap-6 mb-6'>
+              {skillCategory.icon}
+              <h3 className='text-white text-xl font-bold'>{skillCategory.category}</h3>
+
+              <div className="flex flex-wrap gap-6 mt-4">
+                        {skillCategory.items.map((item, idx) => (
+                            <div key={idx} className="group flex flex-col items-center gap-3">
+                                <div className="text-2xl text-gray-400 group-hover:text-teal-400 transition-colors">
+                                    {item.icon}
+                                </div>
+                                <span className="text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300">
+                                    {item.name}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+            </div>
+          </div>
+        ))}
+      </div>
+        <div className="mt-8 flex items-center gap-3 p-3 px-5 rounded-full bg-teal-400/5 border border-teal-400/10 max-w-fit">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+        </span>
+        <p className="text-xs font-medium text-teal-200 tracking-wide">
+          CURRENTLY LEARNING: <span className="text-white">Rust and System Design</span>
+        </p>
+</div>
+    </div>
+  );
+}
+export default Skills
