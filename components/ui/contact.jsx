@@ -1,11 +1,14 @@
 'use client'
 import React, { useState } from 'react';
-import { Mail, MapPin, Github, Linkedin, Twitter, Send } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Twitter, Send, CheckCircle } from 'lucide-react';
 import { sendEmail } from '@/app/actions/sendEmail';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
+  
+  // New state for Toast visibility
+  const [showToast, setShowToast] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,39 +21,43 @@ export default function Contact() {
     try {
       await sendEmail(formData);
 
-      console.log('Message sent!', {
-        description: 'I’ll get back to you soon.'
-      });
+      // 1. Show Toast on Success
+      setShowToast(true);
+      
+      // 2. Hide Toast after 3 seconds
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
 
       setFormData({ name: '', email: '', message: '' });
     } catch {
-      console.error('Failed to send message', {
-        description: 'Please try again later.'
-      });
+      console.error('Failed to send message');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="min-h-screen max-w-7xl mx-auto p-8 lg:px-36">
-      <h1 className="text-6xl font-bold text-white mb-10">Contact Me</h1>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Contact Info Card */}
-        <div className="relative bg-neutral-900 rounded-2xl p-8 shadow-xl border border-neutral-800 transition overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-1 " />
-
+    <section className="min-h-screen pt-24 max-w-7xl mx-auto p-6 md:p-8 lg:px-36 relative">
       
+      
+
+      <h1 className="text-4xl md:text-6xl font-bold text-white mb-10">Contact Me</h1>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        
+        {/* --- Contact Info Card --- */}
+        <div className="relative bg-neutral-900 rounded-2xl p-6 md:p-8 shadow-xl border border-neutral-800 transition overflow-hidden">
+          <div className="absolute left-0 top-0 h-full w-1 " />
 
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-neutral-800 transition">
-              <Mail className="w-6 h-6 text-teal-400" />
-              <span className="text-gray-300">charan.vardham@gmail.com</span>
+              <Mail className="w-6 h-6 text-teal-400 flex-shrink-0" />
+              <span className="text-gray-300 break-all">charan.vardham@gmail.com</span>
             </div>
 
             <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-neutral-800 transition">
-              <MapPin className="w-6 h-6 text-teal-400" />
+              <MapPin className="w-6 h-6 text-teal-400 flex-shrink-0" />
               <span className="text-gray-300">Cleveland, OH</span>
             </div>
           </div>
@@ -71,8 +78,8 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="bg-neutral-900 rounded-2xl p-8 border border-neutral-800 shadow-xl flex flex-col gap-6">
+        {/* --- Contact Form --- */}
+        <form onSubmit={handleSubmit} className="bg-neutral-900 rounded-2xl p-6 md:p-8 border border-neutral-800 shadow-xl flex flex-col gap-6">
           <div>
             <label className="text-sm text-gray-400">Name</label>
             <input
@@ -80,7 +87,7 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="mt-1 w-full rounded-xl bg-neutral-800 border border-neutral-700 px-4 py-3 text-white focus:outline-none focus:border-teal-400"
+              className="mt-1 w-full rounded-xl bg-neutral-800 border border-neutral-700 px-4 py-3 text-white focus:outline-none focus:border-teal-400 transition-colors"
             />
           </div>
 
@@ -92,7 +99,7 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="mt-1 w-full rounded-xl bg-neutral-800 border border-neutral-700 px-4 py-3 text-white focus:outline-none focus:border-teal-400"
+              className="mt-1 w-full rounded-xl bg-neutral-800 border border-neutral-700 px-4 py-3 text-white focus:outline-none focus:border-teal-400 transition-colors"
             />
           </div>
 
@@ -104,14 +111,14 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-              className="mt-1 w-full rounded-xl bg-neutral-800 border border-neutral-700 px-4 py-3 text-white resize-none focus:outline-none focus:border-teal-400"
+              className="mt-1 w-full rounded-xl bg-neutral-800 border border-neutral-700 px-4 py-3 text-white resize-none focus:outline-none focus:border-teal-400 transition-colors"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-semibold py-3 transition disabled:opacity-60"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-semibold py-3 transition disabled:opacity-60 active:scale-95"
           >
             {loading ? 'Sending…' : 'Send Message'}
             <Send className="w-4 h-4" />

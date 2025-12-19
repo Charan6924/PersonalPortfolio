@@ -8,14 +8,23 @@ import { SiLangchain } from "react-icons/si";
 import { SiOpenai } from "react-icons/si";
 import { ExternalLink } from 'lucide-react';
 
-
 const Projects = () => {
   return (
-    <div className='min-h-screen flex flex-col items-start max-w-7xl mx-auto lg:px-36 relative overflow-hidden'>
-      <LeftScroll to='#contact'/>
-      <h1 className='text-6xl font-bold text-left mt-10 text-white'>My Projects</h1>
+    // Changed: Added pt-24 for navbar clearance, adjusted padding for mobile (p-6)
+    <div className='min-h-screen flex flex-col items-start max-w-7xl mx-auto p-6 lg:px-36 pt-24 relative overflow-hidden'>
       
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 w-full pt-5 pb-20'>
+      {/* Changed: Hide LeftScroll on mobile to prevent overlap */}
+      <div className="hidden lg:block">
+        <LeftScroll to='#contact'/>
+      </div>
+
+      {/* Changed: Responsive text size (4xl on mobile, 6xl on desktop) */}
+      <h1 className='text-4xl md:text-6xl font-bold text-left mb-4 text-white'>My Projects</h1>
+      
+      {/* Grid: Stacks 1 column on mobile, 2 on medium+ screens */}
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 w-full pb-20'>
+        
+        {/* --- Project 1: CycleGAN --- */}
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
           href='https://github.com/Charan6924/CycleGAN'
           target='_blank'>
@@ -24,7 +33,7 @@ const Projects = () => {
           </div>
           <div className='mb-4'>
             <h2 className='text-2xl font-bold text-white flex items-center gap-3'>
-              <GiCycle className="w-8 h-8 text-teal-400"/> 
+              <GiCycle className="w-8 h-8 text-teal-400 flex-shrink-0"/> 
               CycleGAN
             </h2>
           </div>
@@ -34,7 +43,8 @@ const Projects = () => {
             </p>
           </div>
           
-          <div className='flex items-center gap-6 pt-4 border-t border-neutral-800'>
+          {/* Added flex-wrap to prevent icons from spilling out on small screens */}
+          <div className='flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800'>
             <div className='flex flex-col items-center gap-2'>
               <SiPython className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
               <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>Python</span>
@@ -54,7 +64,7 @@ const Projects = () => {
           </div>
         </a>
       
-
+        {/* --- Project 2: RAG Chatbot --- */}
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
         href='https://github.com/Charan6924/RAG'
         target='_blank'>
@@ -63,7 +73,7 @@ const Projects = () => {
           </div>
           <div className='mb-4'>
             <h2 className='text-2xl font-bold text-white flex items-center gap-3'>
-              <GiArtificialIntelligence className="w-8 h-8 text-teal-400"/>
+              <GiArtificialIntelligence className="w-8 h-8 text-teal-400 flex-shrink-0"/>
               RAG Chatbot
             </h2>
           </div>
@@ -73,7 +83,7 @@ const Projects = () => {
             </p>
           </div>
           
-          <div className='flex items-center gap-6 pt-4 border-t border-neutral-800'>
+          <div className='flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800'>
             <div className='flex flex-col items-center gap-2'>
               <SiPython className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
               <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>Python</span>
@@ -97,6 +107,7 @@ const Projects = () => {
           </div>
         </a>
 
+        {/* --- Project 3: Spectrum To Kernel --- */}
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
           href='https://github.com/Charan6924/SpectrumToKernel'
           target='_blank'>
@@ -105,7 +116,7 @@ const Projects = () => {
           </div>
           <div className='mb-4'>
             <h2 className='text-2xl font-bold text-white flex items-center gap-3'>
-              <PiWaveSineFill className='h-8 w-8 text-teal-400'/>
+              <PiWaveSineFill className='h-8 w-8 text-teal-400 flex-shrink-0'/>
               Spectrum To Kernel
             </h2>
           </div>
@@ -114,7 +125,7 @@ const Projects = () => {
               Developed a deep learning model that identifies the reconstruction kernel of a CT image and transforms it into an image generated with a different kernel.
             </p>
           </div>
-           <div className='flex items-center gap-6 pt-4 border-t border-neutral-800'>
+           <div className='flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800'>
             <div className='flex flex-col items-center gap-2'>
               <SiPython className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
               <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>Python</span>
@@ -134,6 +145,7 @@ const Projects = () => {
           </div>
         </a>
 
+        {/* --- Project 4: Weather Agent --- */}
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
         target='_blank'
           href='https://github.com/Charan6924/Weather-Agent'>
@@ -142,7 +154,7 @@ const Projects = () => {
           </div>
           <div className='mb-4'>
             <h2 className='text-2xl font-bold text-white flex items-center gap-3'>
-              <TiWeatherCloudy className='w-8 h-8 text-teal-400'/>
+              <TiWeatherCloudy className='w-8 h-8 text-teal-400 flex-shrink-0'/>
               MCP Weather Agent
             </h2>
           </div>
@@ -151,7 +163,7 @@ const Projects = () => {
               A conversational Weather Agent that uses MCP tools, OpenWeatherMap, and GPT-4o to intelligently fetch real-time weather data.
             </p>
           </div>
-           <div className='flex items-center gap-6 pt-4 border-t border-neutral-800'>
+           <div className='flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800'>
             <div className='flex flex-col items-center gap-2'>
               <SiPython className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
               <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>Python</span>
