@@ -19,7 +19,7 @@ const Projects = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 w-full pb-20'>
 
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
-          href='https://github.com/Charan6924/CycleGAN'
+          href='https://github.com/Charan6924/ShakespeareGPT'
           target='_blank'>
             <div className='absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
             <ExternalLink className='w-5 h-5 text-teal-400' />
@@ -137,19 +137,19 @@ const Projects = () => {
 
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
         target='_blank'
-          href='https://github.com/Charan6924/Weather-Agent'>
+          href='https://github.com/Charan6924/SuperResolution'>
             <div className='absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
             <ExternalLink className='w-5 h-5 text-teal-400' />
           </div>
           <div className='mb-4'>
             <h2 className='text-2xl font-bold text-white flex items-center gap-3'>
               <TiWeatherCloudy className='w-8 h-8 text-teal-400 flex-shrink-0'/>
-              BPE Tokenizer
+              ESRGAN Super-Resolution
             </h2>
           </div>
           <div className='flex-grow'>
             <p className='text-gray-400 mb-6 leading-relaxed'>
-              
+              SRGAN-based super-resolution model for upscaling 64×64 images to 125×125 with perceptual quality optimization using adversarial training
             </p>
           </div>
            <div className='flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800'>
@@ -157,13 +157,17 @@ const Projects = () => {
               <SiPython className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
               <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>Python</span>
             </div>
-             <div className='flex flex-col items-center gap-2'>
-              <SiFastapi className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
-              <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>FastAPI</span>
+            <div className='flex flex-col items-center gap-2'>
+              <SiPytorch className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
+              <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>Pytorch</span>
             </div>
             <div className='flex flex-col items-center gap-2'>
-              <SiOpenai className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
-              <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>OpenAI API</span>
+              <SiPandas className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
+              <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>Pandas</span>
+            </div>
+            <div className='flex flex-col items-center gap-2'>
+              <SiNumpy className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
+              <span className='text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300'>Numpy</span>
             </div>
           </div>
         </a>
