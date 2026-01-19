@@ -7,7 +7,6 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
   
-  // New state for Toast visibility
   const [showToast, setShowToast] = useState(false);
 
   const handleChange = (e) => {
@@ -21,10 +20,8 @@ export default function Contact() {
     try {
       await sendEmail(formData);
 
-      // 1. Show Toast on Success
       setShowToast(true);
       
-      // 2. Hide Toast after 3 seconds
       setTimeout(() => {
         setShowToast(false);
       }, 3000);
@@ -46,7 +43,6 @@ export default function Contact() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
         
-        {/* --- Contact Info Card --- */}
         <div className="relative bg-neutral-900 rounded-2xl p-6 md:p-8 shadow-xl border border-neutral-800 transition overflow-hidden">
           <div className="absolute left-0 top-0 h-full w-1 " />
 
@@ -78,7 +74,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* --- Contact Form --- */}
         <form onSubmit={handleSubmit} className="bg-neutral-900 rounded-2xl p-6 md:p-8 border border-neutral-800 shadow-xl flex flex-col gap-6">
           <div>
             <label className="text-sm text-gray-400">Name</label>

@@ -10,21 +10,14 @@ import { ExternalLink } from 'lucide-react';
 
 const Projects = () => {
   return (
-    // Changed: Added pt-24 for navbar clearance, adjusted padding for mobile (p-6)
     <div className='min-h-screen flex flex-col items-start max-w-7xl mx-auto p-6 lg:px-36 pt-24 relative overflow-hidden'>
-      
-      {/* Changed: Hide LeftScroll on mobile to prevent overlap */}
       <div className="hidden lg:block">
         <LeftScroll to='#contact'/>
       </div>
 
-      {/* Changed: Responsive text size (4xl on mobile, 6xl on desktop) */}
       <h1 className='text-4xl md:text-6xl font-bold text-left mb-4 text-white'>My Projects</h1>
-      
-      {/* Grid: Stacks 1 column on mobile, 2 on medium+ screens */}
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 w-full pb-20'>
-        
-        {/* --- Project 1: CycleGAN --- */}
+
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
           href='https://github.com/Charan6924/CycleGAN'
           target='_blank'>
@@ -34,16 +27,15 @@ const Projects = () => {
           <div className='mb-4'>
             <h2 className='text-2xl font-bold text-white flex items-center gap-3'>
               <GiCycle className="w-8 h-8 text-teal-400 flex-shrink-0"/> 
-              CycleGAN
+              ShakespeareGPT
             </h2>
           </div>
           <div className='flex-grow'>
             <p className='text-gray-400 mb-6 leading-relaxed'>
-              Developed a CycleGAN model using PyTorch to convert images of horses to zebras and vice versa without requiring paired training data.
+              Implemented a generative pretrained transformer (GPT) model using PyTorch that is trained on the life works of Shakespeare. 
             </p>
           </div>
           
-          {/* Added flex-wrap to prevent icons from spilling out on small screens */}
           <div className='flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800'>
             <div className='flex flex-col items-center gap-2'>
               <SiPython className='text-2xl text-gray-500 group-hover:text-teal-400 transition-colors'/>
@@ -64,7 +56,6 @@ const Projects = () => {
           </div>
         </a>
       
-        {/* --- Project 2: RAG Chatbot --- */}
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
         href='https://github.com/Charan6924/RAG'
         target='_blank'>
@@ -107,7 +98,6 @@ const Projects = () => {
           </div>
         </a>
 
-        {/* --- Project 3: Spectrum To Kernel --- */}
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
           href='https://github.com/Charan6924/SpectrumToKernel'
           target='_blank'>
@@ -145,7 +135,6 @@ const Projects = () => {
           </div>
         </a>
 
-        {/* --- Project 4: Weather Agent --- */}
         <a className='relative group bg-neutral-900 flex flex-col border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors p-6 h-full'
         target='_blank'
           href='https://github.com/Charan6924/Weather-Agent'>
@@ -155,12 +144,12 @@ const Projects = () => {
           <div className='mb-4'>
             <h2 className='text-2xl font-bold text-white flex items-center gap-3'>
               <TiWeatherCloudy className='w-8 h-8 text-teal-400 flex-shrink-0'/>
-              MCP Weather Agent
+              BPE Tokenizer
             </h2>
           </div>
           <div className='flex-grow'>
             <p className='text-gray-400 mb-6 leading-relaxed'>
-              A conversational Weather Agent that uses MCP tools, OpenWeatherMap, and GPT-4o to intelligently fetch real-time weather data.
+              
             </p>
           </div>
            <div className='flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-neutral-800'>
