@@ -19,73 +19,77 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
-        }   
+        }
     }, []);
 
+    const navLinks = [
+        { href: '#home', label: 'Home' },
+        { href: '#skills', label: 'Skills' },
+        { href: '#projects', label: 'Projects' },
+        { href: '#contact', label: 'Contact' },
+    ];
+
     return (
-        <nav 
+        <nav
             className={`
-                text-white 
-                fixed top-0 w-full z-50 
-                transition-all duration-300 ease-in-out
-                ${isScrolled || isMobileMenuOpen ? 'bg-neutral-800 shadow-lg' : 'bg-transparent'}
+                fixed top-0 w-full z-50
+                transition-all duration-500 ease-out
+                ${isScrolled || isMobileMenuOpen
+                    ? 'bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-white/5'
+                    : 'bg-transparent'}
             `}
         >
-            <div className='flex items-center justify-between max-w-7xl mx-auto p-4 md:p-6 lg:px-12'>
-                
-                {/* LOGO */}
-                <Link href='/'>
-                    <img src='/C_logo.png' alt='Logo' className='h-8 md:h-10 scale-[1.5] md:scale-[1.8] w-auto transition-transform hover:scale-[1.6] md:hover:scale-[1.9]' />
+            <div className='flex items-center justify-between max-w-6xl mx-auto px-6 py-5'>
+
+                <Link href='/' className='text-xl font-bold tracking-tight text-white hover:opacity-70 transition-opacity duration-300'>
+                    CV<span className='text-neutral-500'>.</span>
                 </Link>
-                
-                {/* DESKTOP MENU (Hidden on Mobile) */}
-                <div className='hidden md:flex flex-grow justify-center gap-8 text-xl font-semibold'>
-                    <Link href="#home" className="hover:text-teal-400 transition-colors">Home</Link>
-                    <Link href="#skills" className="hover:text-teal-400 transition-colors">Skills</Link>
-                    <Link href="#projects" className="hover:text-teal-400 transition-colors">Projects</Link>
-                    <Link href="#contact" className="hover:text-teal-400 transition-colors">Contact</Link>
+
+                <div className='hidden md:flex items-center gap-8'>
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className="text-sm text-neutral-400 hover:text-white transition-colors duration-300"
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
+                    <Link
+                        href="#contact"
+                        className="text-sm px-5 py-2.5 rounded-full bg-white text-black font-medium hover:bg-neutral-200 transition-colors"
+                    >
+                        Get in Touch
+                    </Link>
                 </div>
 
-                {/* MOBILE MENU BUTTON (Visible only on Mobile) */}
-                <button 
+                <button
                     className="md:hidden text-white focus:outline-none"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
-                    {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
 
-            {/* MOBILE MENU DROPDOWN */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-neutral-800 border-t border-neutral-700 absolute w-full">
-                    <div className="flex flex-col items-center gap-6 py-8 text-xl font-semibold">
-                        <Link 
-                            href="#home" 
+                <div className="md:hidden bg-[#0a0a0f]/95 backdrop-blur-xl border-t border-white/5 absolute w-full">
+                    <div className="flex flex-col items-center gap-6 py-8">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="text-neutral-400 hover:text-white transition-colors"
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                        <Link
+                            href="#contact"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="hover:text-teal-400 transition-colors"
+                            className="px-6 py-2.5 rounded-full bg-white text-black font-medium"
                         >
-                            Home
-                        </Link>
-                        <Link 
-                            href="#skills" 
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="hover:text-teal-400 transition-colors"
-                        >
-                            Skills
-                        </Link>
-                        <Link 
-                            href="#projects" 
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="hover:text-teal-400 transition-colors"
-                        >
-                            Projects
-                        </Link>
-                        <Link 
-                            href="#contact" 
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="hover:text-teal-400 transition-colors"
-                        >
-                            Contact
+                            Get in Touch
                         </Link>
                     </div>
                 </div>

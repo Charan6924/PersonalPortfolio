@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { Code, Cpu, Globe, Terminal } from 'lucide-react'
 import { SiPython, SiRstudioide, SiTypescript, SiPytorch, SiTensorflow, SiScikitlearn, SiPandas, SiNumpy, SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiHtml5, SiGit, SiGithub, SiDocker, SiLinux, SiVercel } from 'react-icons/si'
@@ -6,12 +7,13 @@ import { FaJava } from "react-icons/fa";
 import { TbSql } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 import LeftScroll from './leftscroll'
+import { motion } from 'framer-motion'
 
 const Skills = () => {
   const skillsData = [
   {
     category: "Languages",
-    icon: <Code className="w-6 h-6 text-teal-400" />,
+    icon: <Code className="w-5 h-5" />,
     items: [
       { name: "Python", icon: <SiPython/> },
       { name: "JavaScript", icon: <IoLogoJavascript /> },
@@ -23,7 +25,7 @@ const Skills = () => {
   },
   {
     category: "Machine Learning & AI",
-    icon: <Cpu className="w-6 h-6 text-teal-400" />,
+    icon: <Cpu className="w-5 h-5" />,
     items: [
       { name: "PyTorch", icon: <SiPytorch /> },
       { name: "TensorFlow", icon: <SiTensorflow /> },
@@ -34,7 +36,7 @@ const Skills = () => {
   },
   {
     category: "Web Development",
-    icon: <Globe className="w-6 h-6 text-teal-400" />,
+    icon: <Globe className="w-5 h-5" />,
     items: [
       { name: "React", icon: <SiReact /> },
       { name: "Next.js", icon: <SiNextdotjs /> },
@@ -45,7 +47,7 @@ const Skills = () => {
   },
   {
     category: "Tools & DevOps",
-    icon: <Terminal className="w-6 h-6 text-teal-400" />,
+    icon: <Terminal className="w-5 h-5" />,
     items: [
       { name: "Git", icon: <SiGit /> },
       { name: "GitHub", icon: <SiGithub /> },
@@ -57,47 +59,82 @@ const Skills = () => {
   }
 ];
   return (
-    <div className='min-h-screen pt-24 flex flex-col items-start max-w-7xl mx-auto p-6 lg:px-36 relative overflow-hidden'>
+    <div className='py-24 px-6 relative overflow-hidden'>
+
       <div className="hidden lg:block">
         <LeftScroll to='#projects'/>
       </div>
 
-      <h1 className='text-4xl md:text-6xl font-bold text-left mb-10 text-white'>Skills</h1>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 w-full'>
-        {skillsData.map((skillCategory, index) => (
-          <div key={index} className='p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors h-full'>
-            <div className='flex flex-col gap-6 mb-2'>
-              <div className='flex items-center gap-3'>
-                {skillCategory.icon}
-                <h3 className='text-white text-xl font-bold'>{skillCategory.category}</h3>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
+            Skills & Technologies
+          </h2>
+          <p className="text-neutral-400 max-w-xl mx-auto">
+            Technologies I work with to bring ideas to life
+          </p>
+        </motion.div>
+
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          {skillsData.map((skillCategory, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className='p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all duration-300'
+            >
+              <div className='flex items-center gap-3 mb-6'>
+                <div className='w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white'>
+                  {skillCategory.icon}
+                </div>
+                <h3 className='text-white text-lg font-semibold'>{skillCategory.category}</h3>
               </div>
 
-              <div className="flex flex-wrap gap-6 mt-2">
-                        {skillCategory.items.map((item, idx) => (
-                            <div key={idx} className="group flex flex-col items-center gap-3">
-                                <div className="text-2xl text-gray-400 group-hover:text-teal-400 transition-colors transform group-hover:scale-110 duration-200">
-                                    {item.icon}
-                                </div>
-                                <span className="text-[10px] uppercase tracking-wider text-gray-500 font-medium group-hover:text-gray-300">
-                                    {item.name}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-            </div>
+              <div className="flex flex-wrap gap-3">
+                {skillCategory.items.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/5 hover:border-white/20 hover:bg-white/[0.06] transition-all duration-300"
+                  >
+                    <span className="text-lg text-neutral-400 group-hover:text-white transition-colors">
+                      {item.icon}
+                    </span>
+                    <span className="text-sm text-neutral-400 group-hover:text-white transition-colors">
+                      {item.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-12 flex justify-center"
+        >
+          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/[0.02] border border-white/5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            </span>
+            <p className="text-sm text-neutral-400">
+              Currently learning <span className="text-white font-medium">NLP and Language Modelling</span>
+            </p>
           </div>
-        ))}
+        </motion.div>
       </div>
-        
-        <div className="mt-12 flex items-center gap-3 p-3 px-5 rounded-full bg-teal-400/5 border border-teal-400/10 max-w-fit">
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
-        </span>
-        <p className="text-xs font-medium text-teal-200 tracking-wide">
-          CURRENTLY LEARNING: <span className="text-white">NLP and Language Modelling</span>
-        </p>
-</div>
     </div>
   );
 }

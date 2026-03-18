@@ -8,12 +8,12 @@ import Contact from '@/components/ui/contact'
 
 const page = () => {
   return (
-    <div className='bg-neutral-800 text-white '>
+    <div className='bg-[#0a0a0f] text-white min-h-screen'>
         <Navbar/>
-        <section id = 'home' className='scroll-mt-24'><Home/></section>
-        <section id = 'skills' className='scroll-mt-24'><Skills/></section>
-        <section id = 'projects' className='scroll-mt-24'><Projects/></section>
-        <section id = 'contact' className='scroll-mt-24'><Contact/></section>
+        <section id='home' className='scroll-mt-24'><Home/></section>
+        <section id='skills' className='scroll-mt-24'><Skills/></section>
+        <section id='projects' className='scroll-mt-24'><Projects/></section>
+        <section id='contact' className='scroll-mt-24'><Contact/></section>
         <Footer/>
     </div>
   )

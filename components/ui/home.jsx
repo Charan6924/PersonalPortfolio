@@ -1,68 +1,98 @@
+'use client'
 import React from 'react'
 import Link from 'next/link'
-import { GraduationCap, Brain, Rocket, ArrowRight, Mail } from 'lucide-react'
+import { GraduationCap, Brain, Rocket, ArrowRight } from 'lucide-react'
 import RightSocials from './rightsocials'
 import LeftScroll from './leftscroll'
+import { motion } from 'framer-motion'
 
 const Home = () => {
   return (
-    <section className='min-h-screen flex flex-col justify-center items-start pt-24 pb-12 max-w-7xl mx-auto p-6 md:p-12 lg:px-36 relative overflow-hidden'>
+    <section className='min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-6 relative overflow-hidden'>
 
         <div className="hidden lg:block">
             <RightSocials/>
             <LeftScroll to='#skills'/>
         </div>
 
-        <p className="text-teal-400 font-mono text-base md:text-xl mb-4">
-            Hello, my name is
-        </p>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight">
-            Charan Vardham.
-        </h1>
-        
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-400 mb-10 leading-tight">
-             <span className="text-gray-200">I'm always looking to learn new things!</span>
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl w-full mb-10">
-
-            <div className="p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors group">
-                <GraduationCap className="w-8 h-8 text-teal-400 mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-bold text-white mb-2">Education</h3>
-                <p className="text-gray-400 text-sm">Sophomore at Case Western Reserve University.</p>
-                <p className="text-teal-400 text-sm mt-1">CS & Mathematics</p>
-            </div>
-
-            <div className="p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors group">
-                <Brain className="w-8 h-8 text-teal-400 mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-bold text-white mb-2">Interests</h3>
-                <p className="text-gray-400 text-sm">Deeply passionate about Machine Learning, Deep Learning, and AI.</p>
-            </div>
-
-            <div className="p-6 bg-neutral-900 border border-neutral-700 rounded-xl hover:border-teal-400 transition-colors group">
-                <Rocket className="w-8 h-8 text-teal-400 mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-bold text-white mb-2">Always Learning</h3>
-                <p className="text-gray-400 text-sm">I enjoy learning new skills and implementing them in real life!</p>
-            </div>
-
-        </div>
-
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Link 
-                href="https://github.com/Charan6924/Resume/blob/main/Charan_Vardham_2028.pdf"
-                className="inline-flex items-center gap-2 border border-white text-white py-3 px-8 rounded-xl transition-all hover:bg-white hover:text-black hover:scale-105 font-mono text-lg"
-                target="_blank"
+            <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
             >
-                View Resume <ArrowRight size={20} />
-            </Link>
-            
-            <Link 
-                href="mailto:your.email@example.com" 
-                className="flex items-center gap-2 text-gray-500 hover:text-teal-400 transition-colors font-mono text-sm group px-2 py-2">
-                <Mail size={16} className="group-hover:animate-bounce" />
-                <span>or email me directly</span>
-            </Link>
+                <span className="text-white">Hi, I&apos;m </span>
+                <span className="text-white">Charan</span>
+            </motion.h1>
+
+            <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg md:text-xl text-neutral-400 mb-12 max-w-2xl mx-auto leading-relaxed"
+            >
+                A passionate developer focused on Machine Learning, AI, and building
+                impactful software. Always learning, always building.
+            </motion.p>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+            >
+                <Link
+                    href="https://github.com/Charan6924/Resume/blob/main/Charan_Vardham_2028.pdf"
+                    className="group inline-flex items-center gap-2 bg-white text-black py-3.5 px-8 rounded-full font-medium hover:bg-neutral-200 transition-all duration-300"
+                    target="_blank"
+                >
+                    View Resume
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+
+                <Link
+                    href="#projects"
+                    className="inline-flex items-center gap-2 text-neutral-400 hover:text-white py-3.5 px-8 rounded-full border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+                >
+                    See My Work
+                </Link>
+            </motion.div>
+
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto"
+            >
+
+                <div className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-all duration-300">
+                        <GraduationCap className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-white font-semibold mb-2">Education</h3>
+                    <p className="text-neutral-500 text-sm leading-relaxed">Sophomore at Case Western Reserve University</p>
+                    <p className="text-white text-sm font-medium mt-2">CS & Mathematics</p>
+                </div>
+
+                <div className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-all duration-300">
+                        <Brain className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-white font-semibold mb-2">Interests</h3>
+                    <p className="text-neutral-500 text-sm leading-relaxed">Passionate about Machine Learning, Deep Learning, and AI</p>
+                </div>
+
+                <div className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-all duration-300">
+                        <Rocket className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-white font-semibold mb-2">Always Learning</h3>
+                    <p className="text-neutral-500 text-sm leading-relaxed">Love building real-world projects with new technologies</p>
+                </div>
+
+            </motion.div>
         </div>
 
     </section>

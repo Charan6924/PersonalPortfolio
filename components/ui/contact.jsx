@@ -1,13 +1,13 @@
 'use client'
 import React, { useState } from 'react';
-import { Mail, MapPin, Github, Linkedin, Twitter, Send, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Twitter, Send, ArrowUpRight } from 'lucide-react';
 import { sendEmail } from '@/app/actions/sendEmail';
+import { motion } from 'framer-motion';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
-  
-  const [showToast, setShowToast] = useState(false);
+  const [, setShowToast] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,13 +19,10 @@ export default function Contact() {
 
     try {
       await sendEmail(formData);
-
       setShowToast(true);
-      
       setTimeout(() => {
         setShowToast(false);
       }, 3000);
-
       setFormData({ name: '', email: '', message: '' });
     } catch {
       console.error('Failed to send message');
@@ -34,91 +31,142 @@ export default function Contact() {
     }
   };
 
+  const socials = [
+    { icon: <Github className="w-5 h-5" />, href: 'https://github.com/Charan6924', label: 'GitHub' },
+    { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/charan-vardham-3bb187312/', label: 'LinkedIn' },
+    { icon: <Twitter className="w-5 h-5" />, href: 'https://x.com/cboyxxxx', label: 'Twitter' },
+  ];
+
   return (
-    <section className="min-h-screen pt-24 max-w-7xl mx-auto p-6 md:p-8 lg:px-36 relative">
-      
-      
+    <section className="py-24 px-6 relative overflow-hidden">
 
-      <h1 className="text-4xl md:text-6xl font-bold text-white mb-10">Contact Me</h1>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Get in Touch
+          </h2>
+          <p className="text-neutral-400 max-w-xl mx-auto">
+            Have a project in mind or just want to chat? Feel free to reach out.
+          </p>
+        </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-        
-        <div className="relative bg-neutral-900 rounded-2xl p-6 md:p-8 shadow-xl border border-neutral-800 transition overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-1 " />
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-neutral-800 transition">
-              <Mail className="w-6 h-6 text-teal-400 flex-shrink-0" />
-              <span className="text-gray-300 break-all">charan.vardham@gmail.com</span>
-            </div>
-
-            <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-neutral-800 transition">
-              <MapPin className="w-6 h-6 text-teal-400 flex-shrink-0" />
-              <span className="text-gray-300">Cleveland, OH</span>
-            </div>
-          </div>
-
-          <div className="mt-10 pt-6 border-t border-neutral-800">
-            <p className="text-xs tracking-widest text-gray-500 mb-4">FIND ME ONLINE</p>
-            <div className="flex gap-4">
-              <a href="https://github.com/Charan6924" target="_blank" className="group p-4 rounded-2xl bg-neutral-800 hover:bg-neutral-700 transition">
-                <Github className="w-5 h-5 text-gray-300 group-hover:text-white" />
-              </a>
-              <a href="https://www.linkedin.com/in/charan-vardham-3bb187312/" target="_blank" className="group p-4 rounded-2xl bg-neutral-800 hover:bg-neutral-700 transition">
-                <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-white" />
-              </a>
-              <a href="https://x.com/cboyxxxx" target="_blank" className="group p-4 rounded-2xl bg-neutral-800 hover:bg-neutral-700 transition">
-                <Twitter className="w-5 h-5 text-gray-300 group-hover:text-white" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <form onSubmit={handleSubmit} className="bg-neutral-900 rounded-2xl p-6 md:p-8 border border-neutral-800 shadow-xl flex flex-col gap-6">
-          <div>
-            <label className="text-sm text-gray-400">Name</label>
-            <input
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-xl bg-neutral-800 border border-neutral-700 px-4 py-3 text-white focus:outline-none focus:border-teal-400 transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm text-gray-400">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-xl bg-neutral-800 border border-neutral-700 px-4 py-3 text-white focus:outline-none focus:border-teal-400 transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm text-gray-400">Message</label>
-            <textarea
-              name="message"
-              rows={5}
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full rounded-xl bg-neutral-800 border border-neutral-700 px-4 py-3 text-white resize-none focus:outline-none focus:border-teal-400 transition-colors"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-black font-semibold py-3 transition disabled:opacity-60 active:scale-95"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-2 space-y-6"
           >
-            {loading ? 'Sending…' : 'Send Message'}
-            <Send className="w-4 h-4" />
-          </button>
-        </form>
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-xs text-neutral-500 uppercase tracking-wider">Email</p>
+                  <p className="text-white">charan.vardham@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-xs text-neutral-500 uppercase tracking-wider">Location</p>
+                  <p className="text-white">Cleveland, OH</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+              <p className="text-xs text-neutral-500 uppercase tracking-wider mb-4">Connect</p>
+              <div className="flex gap-3">
+                {socials.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    className="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/20 hover:bg-white/[0.06] transition-all duration-300"
+                  >
+                    <span className="text-neutral-400 group-hover:text-white transition-colors">
+                      {social.icon}
+                    </span>
+                    <span className="text-sm text-neutral-400 group-hover:text-white transition-colors hidden sm:inline">
+                      {social.label}
+                    </span>
+                    <ArrowUpRight className="w-3 h-3 text-neutral-500 group-hover:text-white transition-colors" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            onSubmit={handleSubmit}
+            className="lg:col-span-3 p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-5"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label className="text-sm text-neutral-400 mb-2 block">Name</label>
+                <input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-xl bg-white/[0.03] border border-white/5 px-4 py-3 text-white placeholder-neutral-600 focus:outline-none focus:border-white/30 transition-colors"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label className="text-sm text-neutral-400 mb-2 block">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-xl bg-white/[0.03] border border-white/5 px-4 py-3 text-white placeholder-neutral-600 focus:outline-none focus:border-white/30 transition-colors"
+                  placeholder="you@example.com"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="text-sm text-neutral-400 mb-2 block">Message</label>
+              <textarea
+                name="message"
+                rows={5}
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="w-full rounded-xl bg-white/[0.03] border border-white/5 px-4 py-3 text-white placeholder-neutral-600 resize-none focus:outline-none focus:border-white/30 transition-colors"
+                placeholder="Tell me about your project..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white text-black font-medium py-3.5 px-6 hover:bg-neutral-200 transition-all duration-300 disabled:opacity-60 active:scale-[0.98]"
+            >
+              {loading ? 'Sending...' : 'Send Message'}
+              <Send className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </motion.form>
+        </div>
       </div>
     </section>
   );
