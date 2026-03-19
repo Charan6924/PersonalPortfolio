@@ -1,7 +1,8 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import { GraduationCap, Brain, Rocket, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { SiPython, SiPytorch, SiTensorflow, SiReact, SiNextdotjs, SiTypescript, SiFastapi, SiMongodb, SiDocker, SiGit, SiAmazonwebservices } from 'react-icons/si'
 import RightSocials from './rightsocials'
 import LeftScroll from './leftscroll'
 import { motion } from 'framer-motion'
@@ -61,37 +62,44 @@ const Home = () => {
             </motion.div>
 
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="pt-8 border-t border-white/[0.06] w-full max-w-3xl"
             >
-
-                <div className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-all duration-300">
-                        <GraduationCap className="w-6 h-6 text-white" />
+                <p className="text-xs text-neutral-600 uppercase tracking-widest mb-6">Tech I work with</p>
+                <div className="relative overflow-hidden">
+                    <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10" />
+                    <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10" />
+                    <div className="flex animate-marquee">
+                        <div className="flex items-center gap-12 px-6 shrink-0">
+                            <SiPython className="w-6 h-6 text-neutral-500" />
+                            <SiPytorch className="w-6 h-6 text-neutral-500" />
+                            <SiTensorflow className="w-6 h-6 text-neutral-500" />
+                            <SiReact className="w-6 h-6 text-neutral-500" />
+                            <SiNextdotjs className="w-6 h-6 text-neutral-500" />
+                            <SiTypescript className="w-6 h-6 text-neutral-500" />
+                            <SiFastapi className="w-6 h-6 text-neutral-500" />
+                            <SiMongodb className="w-6 h-6 text-neutral-500" />
+                            <SiDocker className="w-6 h-6 text-neutral-500" />
+                            <SiGit className="w-6 h-6 text-neutral-500" />
+                            <SiAmazonwebservices className="w-6 h-6 text-neutral-500" />
+                        </div>
+                        <div className="flex items-center gap-12 px-6 shrink-0">
+                            <SiPython className="w-6 h-6 text-neutral-500" />
+                            <SiPytorch className="w-6 h-6 text-neutral-500" />
+                            <SiTensorflow className="w-6 h-6 text-neutral-500" />
+                            <SiReact className="w-6 h-6 text-neutral-500" />
+                            <SiNextdotjs className="w-6 h-6 text-neutral-500" />
+                            <SiTypescript className="w-6 h-6 text-neutral-500" />
+                            <SiFastapi className="w-6 h-6 text-neutral-500" />
+                            <SiMongodb className="w-6 h-6 text-neutral-500" />
+                            <SiDocker className="w-6 h-6 text-neutral-500" />
+                            <SiGit className="w-6 h-6 text-neutral-500" />
+                            <SiAmazonwebservices className="w-6 h-6 text-neutral-500" />
+                        </div>
                     </div>
-                    <h3 className="text-white font-semibold mb-2">Education</h3>
-                    <p className="text-neutral-500 text-sm leading-relaxed">Sophomore at Case Western Reserve University</p>
-                    <p className="text-white text-sm font-medium mt-2">CS & Mathematics</p>
                 </div>
-
-                <div className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-all duration-300">
-                        <Brain className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-white font-semibold mb-2">Interests</h3>
-                    <p className="text-neutral-500 text-sm leading-relaxed">Passionate about Machine Learning, Deep Learning, and AI</p>
-                </div>
-
-                <div className="group p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-all duration-300">
-                        <Rocket className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-white font-semibold mb-2">Always Learning</h3>
-                    <p className="text-neutral-500 text-sm leading-relaxed">Love building real-world projects with new technologies</p>
-                </div>
-
             </motion.div>
         </div>
 

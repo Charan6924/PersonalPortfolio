@@ -11,10 +11,10 @@ import { motion } from 'framer-motion'
 const Projects = () => {
   const projects = [
     {
-      title: 'ShakespeareGPT',
+      title: 'GPT-2',
       icon: <GiCycle className="w-6 h-6" />,
-      description: 'Implemented a generative pretrained transformer (GPT) model using PyTorch that is trained on the life works of Shakespeare.',
-      href: 'https://github.com/Charan6924/ShakespeareGPT',
+      description: 'Built a GPT-2 language model from scratch using PyTorch, implementing multi-head attention, layer normalization, and autoregressive text generation.',
+      href: 'https://github.com/Charan6924/GPT-2',
       tech: [
         { name: 'Python', icon: <SiPython /> },
         { name: 'Pytorch', icon: <SiPytorch /> },
@@ -36,10 +36,10 @@ const Projects = () => {
       ]
     },
     {
-      title: 'Spectrum To Kernel',
+      title: 'Vision Transformer',
       icon: <PiWaveSineFill className="w-6 h-6" />,
-      description: 'Deep learning model that identifies and transforms CT image reconstruction kernels using neural networks.',
-      href: 'https://github.com/Charan6924/SpectrumToKernel',
+      description: 'Implemented a Vision Transformer (ViT) from scratch for image classification, using patch embeddings and self-attention mechanisms.',
+      href: 'https://github.com/Charan6924/VisionTransformer',
       tech: [
         { name: 'Python', icon: <SiPython /> },
         { name: 'Pytorch', icon: <SiPytorch /> },
