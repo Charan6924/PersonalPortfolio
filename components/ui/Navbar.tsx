@@ -39,7 +39,7 @@ const Navbar = () => {
                     : 'bg-transparent'}
             `}
         >
-            <div className='flex items-center justify-between max-w-6xl mx-auto px-6 py-5'>
+            <div className='flex items-center justify-between max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-5'>
 
                 <Link href='/' className='text-xl font-bold tracking-tight text-white hover:opacity-70 transition-opacity duration-300'>
                     CV<span className='text-neutral-500'>.</span>
