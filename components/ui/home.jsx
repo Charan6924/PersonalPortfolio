@@ -9,14 +9,14 @@ import { motion } from 'framer-motion'
 
 const Home = () => {
   return (
-    <section className='min-h-screen flex flex-col justify-center items-center pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 relative overflow-hidden'>
+    <section className='min-h-screen w-full flex flex-col justify-center items-center pt-24 sm:pt-32 pb-16 sm:pb-20 relative overflow-x-hidden'>
 
         <div className="hidden lg:block">
             <RightSocials/>
             <LeftScroll to='#skills'/>
         </div>
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="w-full max-w-4xl mx-auto text-center relative z-10 px-4 sm:px-0">
 
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ const Home = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="pt-8 border-t border-white/[0.06] w-full max-w-3xl"
+                className="pt-8 border-t border-white/[0.06] w-full max-w-3xl mx-auto"
             >
                 <p className="text-xs text-neutral-600 uppercase tracking-widest mb-4 sm:mb-6">Tech I work with</p>
                 <div className="relative overflow-hidden">

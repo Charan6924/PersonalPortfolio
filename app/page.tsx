@@ -8,7 +8,7 @@ import Contact from '@/components/ui/contact'
 
 const page = () => {
   return (
-    <div className='bg-[#0a0a0f] text-white min-h-screen'>
+    <div className='bg-[#0a0a0f] text-white min-h-screen w-full overflow-x-hidden'>
         <Navbar/>
         <section id='home' className='scroll-mt-24'><Home/></section>
         <section id='skills' className='scroll-mt-24'><Skills/></section>
