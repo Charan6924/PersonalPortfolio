@@ -1,132 +1,146 @@
 'use client'
-import React from 'react'
 import LeftScroll from './leftscroll'
-import { GiCycle, GiArtificialIntelligence } from "react-icons/gi";
-import { SiPytorch, SiPython, SiPandas, SiNumpy, SiFastapi, SiMongodb, SiNextdotjs, SiLangchain } from "react-icons/si";
-import { TiWeatherCloudy } from "react-icons/ti";
-import { PiWaveSineFill } from "react-icons/pi";
-import { ExternalLink } from 'lucide-react';
+import { SiPytorch, SiPython, SiPandas, SiNumpy, SiFastapi, SiMongodb, SiNextdotjs, SiLangchain } from "react-icons/si"
+import { ExternalLink, Brain, MessageSquare, Eye, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 
+const projects = [
+  {
+    title: 'GPT-2',
+    icon: <Brain className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
+    description: 'Built a GPT-2 language model from scratch using PyTorch, implementing multi-head attention, layer normalization, and autoregressive text generation.',
+    href: 'https://github.com/Charan6924/GPT2',
+    tech: [
+      { name: 'Python', icon: <SiPython /> },
+      { name: 'Pytorch', icon: <SiPytorch /> },
+      { name: 'Pandas', icon: <SiPandas /> },
+      { name: 'Numpy', icon: <SiNumpy /> },
+    ]
+  },
+  {
+    title: 'RAG Chatbot',
+    icon: <MessageSquare className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
+    description: 'A Retrieval-Augmented Generation (RAG) Chatbot with FastAPI backend, MongoDB chat history, and Next.js frontend.',
+    href: 'https://github.com/Charan6924/RAG',
+    tech: [
+      { name: 'Python', icon: <SiPython /> },
+      { name: 'FastAPI', icon: <SiFastapi /> },
+      { name: 'Next.JS', icon: <SiNextdotjs /> },
+      { name: 'MongoDB', icon: <SiMongodb /> },
+      { name: 'LangChain', icon: <SiLangchain /> },
+    ]
+  },
+  {
+    title: 'Vision Transformer',
+    icon: <Eye className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
+    description: 'Implemented a Vision Transformer (ViT) from scratch for image classification, using patch embeddings and self-attention mechanisms.',
+    href: 'https://github.com/Charan6924/VisionTransformer',
+    tech: [
+      { name: 'Python', icon: <SiPython /> },
+      { name: 'Pytorch', icon: <SiPytorch /> },
+      { name: 'Pandas', icon: <SiPandas /> },
+      { name: 'Numpy', icon: <SiNumpy /> },
+    ]
+  },
+  {
+    title: 'ESRGAN',
+    icon: <Sparkles className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
+    description: 'SRGAN-based super-resolution model for upscaling images with perceptual quality optimization using adversarial training.',
+    href: 'https://github.com/Charan6924/SuperResolution',
+    tech: [
+      { name: 'Python', icon: <SiPython /> },
+      { name: 'Pytorch', icon: <SiPytorch /> },
+      { name: 'Pandas', icon: <SiPandas /> },
+      { name: 'Numpy', icon: <SiNumpy /> },
+    ]
+  },
+]
+
 const Projects = () => {
-  const projects = [
-    {
-      title: 'GPT-2',
-      icon: <GiCycle className="w-6 h-6" />,
-      description: 'Built a GPT-2 language model from scratch using PyTorch, implementing multi-head attention, layer normalization, and autoregressive text generation.',
-      href: 'https://github.com/Charan6924/GPT-2',
-      tech: [
-        { name: 'Python', icon: <SiPython /> },
-        { name: 'Pytorch', icon: <SiPytorch /> },
-        { name: 'Pandas', icon: <SiPandas /> },
-        { name: 'Numpy', icon: <SiNumpy /> },
-      ]
-    },
-    {
-      title: 'RAG Chatbot',
-      icon: <GiArtificialIntelligence className="w-6 h-6" />,
-      description: 'A Retrieval-Augmented Generation (RAG) Chatbot with FastAPI backend, MongoDB chat history, and Next.js frontend.',
-      href: 'https://github.com/Charan6924/RAG',
-      tech: [
-        { name: 'Python', icon: <SiPython /> },
-        { name: 'FastAPI', icon: <SiFastapi /> },
-        { name: 'Next.JS', icon: <SiNextdotjs /> },
-        { name: 'MongoDB', icon: <SiMongodb /> },
-        { name: 'LangChain', icon: <SiLangchain /> },
-      ]
-    },
-    {
-      title: 'Vision Transformer',
-      icon: <PiWaveSineFill className="w-6 h-6" />,
-      description: 'Implemented a Vision Transformer (ViT) from scratch for image classification, using patch embeddings and self-attention mechanisms.',
-      href: 'https://github.com/Charan6924/VisionTransformer',
-      tech: [
-        { name: 'Python', icon: <SiPython /> },
-        { name: 'Pytorch', icon: <SiPytorch /> },
-        { name: 'Pandas', icon: <SiPandas /> },
-        { name: 'Numpy', icon: <SiNumpy /> },
-      ]
-    },
-    {
-      title: 'ESRGAN Super-Resolution',
-      icon: <TiWeatherCloudy className="w-6 h-6" />,
-      description: 'SRGAN-based super-resolution model for upscaling images with perceptual quality optimization using adversarial training.',
-      href: 'https://github.com/Charan6924/SuperResolution',
-      tech: [
-        { name: 'Python', icon: <SiPython /> },
-        { name: 'Pytorch', icon: <SiPytorch /> },
-        { name: 'Pandas', icon: <SiPandas /> },
-        { name: 'Numpy', icon: <SiNumpy /> },
-      ]
-    },
-  ];
-
   return (
-    <div className='py-24 px-6 relative overflow-hidden'>
-
+    <div className="relative">
       <div className="hidden lg:block">
         <LeftScroll to='#contact'/>
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <section className="min-h-[50vh] md:min-h-[60vh] flex items-center justify-center px-4 md:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center"
         >
-          <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
-            Featured Projects
-          </h2>
-          <p className="text-neutral-400 max-w-xl mx-auto">
-            A selection of projects I&apos;ve built to explore new technologies
+          <p className="text-neutral-500 text-xs md:text-sm uppercase tracking-widest mb-4">
+            What I&apos;ve built
+          </p>
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-4">
+            Projects
+          </h1>
+          <p className="text-neutral-400 text-base md:text-lg max-w-md mx-auto">
+            Scroll to explore my work
           </p>
         </motion.div>
+      </section>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-          {projects.map((project, index) => (
-            <motion.a
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+      {projects.map((project, index) => (
+        <section
+          key={index}
+          className="min-h-[50vh] md:min-h-[70vh] flex items-center justify-center px-4 md:px-6 py-12 md:py-16"
+        >
+          <div className="max-w-4xl w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -4 }}
-              className='group relative flex flex-col p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300'
-              href={project.href}
-              target='_blank'
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className='absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-                <ExternalLink className='w-5 h-5 text-white' />
+              <div className="flex items-center justify-between mb-6">
+                <p className="text-neutral-500 text-xs md:text-sm uppercase tracking-widest">
+                  0{index + 1} / 0{projects.length}
+                </p>
+                <a
+                  href={project.href}
+                  target="_blank"
+                  className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors"
+                >
+                  <span className="text-sm">View on GitHub</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
 
-              <div className='flex items-center gap-4 mb-4'>
-                <div className='w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white group-hover:bg-white/10 transition-all duration-300'>
+              <div className="flex items-center gap-4 md:gap-6 mb-4 md:mb-6">
+                <div className="w-14 h-14 md:w-24 md:h-24 rounded-xl md:rounded-2xl bg-white/5 flex items-center justify-center text-white">
                   {project.icon}
                 </div>
-                <h3 className='text-xl font-semibold text-white'>{project.title}</h3>
+                <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white">
+                  {project.title}
+                </h2>
               </div>
 
-              <p className='text-neutral-400 text-sm leading-relaxed mb-6 flex-grow'>
+              <p className="text-neutral-400 text-base md:text-xl leading-relaxed mb-8 md:mb-10 max-w-2xl">
                 {project.description}
               </p>
 
-              <div className='flex flex-wrap gap-2 pt-4 border-t border-white/5'>
+              <div className="flex flex-wrap gap-2 md:gap-3">
                 {project.tech.map((item, idx) => (
-                  <div
+                  <motion.div
                     key={idx}
-                    className='flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.03] text-neutral-500 group-hover:text-neutral-300 transition-colors'
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.1 + idx * 0.05 }}
+                    className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-2 md:py-2.5 rounded-lg md:rounded-xl bg-white/[0.03] border border-white/10"
                   >
-                    <span className='text-sm'>{item.icon}</span>
-                    <span className='text-xs'>{item.name}</span>
-                  </div>
+                    <span className="text-base md:text-lg text-neutral-400">{item.icon}</span>
+                    <span className="text-xs md:text-sm text-neutral-400">{item.name}</span>
+                  </motion.div>
                 ))}
               </div>
-            </motion.a>
-          ))}
-        </div>
-      </div>
+            </motion.div>
+          </div>
+        </section>
+      ))}
     </div>
   )
 }
