@@ -53,12 +53,12 @@ const Home = () => {
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
 
-                <Link
+                <a
                     href="#projects"
                     className="inline-flex items-center gap-2 text-neutral-400 hover:text-white py-3 sm:py-3.5 px-6 sm:px-8 rounded-full border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300 text-sm sm:text-base"
                 >
                     See My Work
-                </Link>
+                </a>
             </motion.div>
 
             <motion.div
