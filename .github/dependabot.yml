@@ -1,10 +1,27 @@
 version: 2
 updates:
+  # npm / pnpm / yarn
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "weekly"   # daily | weekly | monthly
     open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
+    labels: ["dependencies"]
+
+  # Python (pip, poetry, pipenv all use "pip")
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # GitHub Actions themselves
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # Docker
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
