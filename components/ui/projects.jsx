@@ -1,14 +1,37 @@
 'use client'
 import LeftScroll from './leftscroll'
-import { SiPytorch, SiPython, SiPandas, SiNumpy, SiFastapi, SiMongodb, SiNextdotjs, SiLangchain } from "react-icons/si"
-import { ExternalLink, Brain, MessageSquare, Eye, Sparkles } from 'lucide-react'
+import { SiPytorch, SiPython, SiPandas, SiNumpy, SiFastapi, SiNextdotjs, SiTypescript, SiOpenai } from "react-icons/si"
+import { ExternalLink, Brain, Eye, Scan, Palette, Search, Shield } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const projects = [
   {
+    title: 'Incident Agent',
+    icon: <Shield className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
+    description: 'Multi-agent AI incident response platform that autonomously detects, triages, investigates, and remediates production incidents — with automated post-mortem generation and runbook execution.',
+    href: 'https://github.com/Charan6924/incident-agent',
+    tech: [
+      { name: 'TypeScript', icon: <SiTypescript /> },
+      { name: 'Python', icon: <SiPython /> },
+      { name: 'OpenAI', icon: <SiOpenai /> },
+    ]
+  },
+  {
+    title: 'Kernel Conversion',
+    icon: <Scan className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
+    description: 'Deep learning system that estimates spline-based optical transfer functions to transform medical images between sharp and blurred CT reconstruction kernels using frequency-domain processing with FFT operations.',
+    href: 'https://github.com/Charan6924/KernelConversion',
+    tech: [
+      { name: 'Python', icon: <SiPython /> },
+      { name: 'Pytorch', icon: <SiPytorch /> },
+      { name: 'Pandas', icon: <SiPandas /> },
+      { name: 'Numpy', icon: <SiNumpy /> },
+    ]
+  },
+  {
     title: 'GPT-2',
     icon: <Brain className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
-    description: 'Built a GPT-2 language model from scratch using PyTorch, implementing multi-head attention, layer normalization, and autoregressive text generation.',
+    description: 'From-scratch implementation of a 124M parameter GPT-2 trained on 10 billion tokens from FineWeb-Edu, implementing multi-head attention, layer normalization, and autoregressive text generation at scale.',
     href: 'https://github.com/Charan6924/GPT2',
     tech: [
       { name: 'Python', icon: <SiPython /> },
@@ -18,23 +41,10 @@ const projects = [
     ]
   },
   {
-    title: 'RAG Chatbot',
-    icon: <MessageSquare className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
-    description: 'A Retrieval-Augmented Generation (RAG) Chatbot with FastAPI backend, MongoDB chat history, and Next.js frontend.',
-    href: 'https://github.com/Charan6924/RAG',
-    tech: [
-      { name: 'Python', icon: <SiPython /> },
-      { name: 'FastAPI', icon: <SiFastapi /> },
-      { name: 'Next.JS', icon: <SiNextdotjs /> },
-      { name: 'MongoDB', icon: <SiMongodb /> },
-      { name: 'LangChain', icon: <SiLangchain /> },
-    ]
-  },
-  {
-    title: 'Vision Transformer',
-    icon: <Eye className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
-    description: 'Implemented a Vision Transformer (ViT) from scratch for image classification, using patch embeddings and self-attention mechanisms.',
-    href: 'https://github.com/Charan6924/VisionTransformer',
+    title: 'ArtGAN',
+    icon: <Palette className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
+    description: 'Multi-task CNN-RNN model that classifies paintings by artistic style and artist using a ResNet50-BiLSTM architecture trained on the WikiArt dataset — combining visual features with sequential learning.',
+    href: 'https://github.com/Charan6924/ArtGan',
     tech: [
       { name: 'Python', icon: <SiPython /> },
       { name: 'Pytorch', icon: <SiPytorch /> },
@@ -43,10 +53,22 @@ const projects = [
     ]
   },
   {
-    title: 'ESRGAN',
-    icon: <Sparkles className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
-    description: 'SRGAN-based super-resolution model for upscaling images with perceptual quality optimization using adversarial training.',
-    href: 'https://github.com/Charan6924/SuperResolution',
+    title: 'Resume Scanner',
+    icon: <Search className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
+    description: 'AI-powered resume screening platform that lets recruiters search candidates using natural language. Uses FastAPI, OpenAI embeddings, Pinecone vector search, and Supabase for storage.',
+    href: 'https://github.com/Charan6924/ResumeScanner',
+    tech: [
+      { name: 'Python', icon: <SiPython /> },
+      { name: 'FastAPI', icon: <SiFastapi /> },
+      { name: 'OpenAI', icon: <SiOpenai /> },
+      { name: 'Next.JS', icon: <SiNextdotjs /> },
+    ]
+  },
+  {
+    title: 'Vision Transformer',
+    icon: <Eye className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />,
+    description: 'From-scratch PyTorch implementation of SigLIP — a Vision Transformer pretrained on CC3M with sigmoid contrastive loss and a BERT text encoder for multimodal representation learning.',
+    href: 'https://github.com/Charan6924/VisionTransformer',
     tech: [
       { name: 'Python', icon: <SiPython /> },
       { name: 'Pytorch', icon: <SiPytorch /> },
