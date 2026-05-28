@@ -1,7 +1,7 @@
 'use client'
 import LeftScroll from './leftscroll'
-import { SiPytorch, SiPython, SiPandas, SiNumpy, SiFastapi, SiNextdotjs, SiTypescript, SiOpenai } from "react-icons/si"
-import { ExternalLink, Brain, Eye, Scan, Palette, Search, Shield } from 'lucide-react'
+import { SiPytorch, SiPython, SiPandas, SiNumpy, SiFastapi, SiNextdotjs, SiTypescript, SiOpenai, SiApachekafka, SiPostgresql } from "react-icons/si"
+import { ExternalLink, Brain, Eye, Scan, Palette, Search, Shield, Network, Database, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const projects = [
@@ -11,9 +11,13 @@ const projects = [
     description: 'Multi-agent AI incident response platform that autonomously detects, triages, investigates, and remediates production incidents — with automated post-mortem generation and runbook execution.',
     href: 'https://github.com/Charan6924/incident-agent',
     tech: [
+      { name: 'Next.js', icon: <SiNextdotjs /> },
       { name: 'TypeScript', icon: <SiTypescript /> },
-      { name: 'Python', icon: <SiPython /> },
-      { name: 'OpenAI', icon: <SiOpenai /> },
+      { name: 'Kafka', icon: <SiApachekafka /> },
+      { name: 'DeepSeek', icon: <Sparkles /> },
+      { name: 'LangGraph', icon: <Network /> },
+      { name: 'Neon Postgres', icon: <SiPostgresql /> },
+      { name: 'Qdrant', icon: <Database /> },
     ]
   },
   {
